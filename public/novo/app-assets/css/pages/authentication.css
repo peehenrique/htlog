@@ -1,0 +1,19 @@
+/*========================================================
+        DARK LAYOUT
+=========================================================*/
+.bg-authentication {
+  background: linear-gradient(90deg, rgba(5,118,188,1) 0%, rgba(5,118,188,0.8015406846332283) 35%, rgba(0,212,255,1) 100%); 
+}
+.bg-authentication .login-footer {
+  padding : 0rem 1.5rem 0.5rem;
+}
+.bg-authentication .login-footer .footer-btn .btn {
+  padding : 0.9rem 1.2rem !important;
+  margin : 1rem 1rem 1rem 0rem;
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .bg-authentication {
+    width : 100%;
+  }
+}

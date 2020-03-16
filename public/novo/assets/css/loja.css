@@ -1,0 +1,34 @@
+.estoque{
+}
+.estoque input{
+  width: 50%;
+  float: right
+}
+.logo{
+  width: 70%;
+}
+
+.texto_estoque{
+  text-align: center;
+}
+.texto_estoque span{
+  font-weight: bold;
+  color:
+  #009688;
+  font-size: 18px;
+}
+
+
+.btn_pesquisar_produtos{
+  position: absolute;
+  right: 0;
+  top: 0.3em;
+
+}
+.carrinho_estoque{
+  display: flex;
+}
+.carrinho_estoque input{
+  width: 25%;
+  margin-right: 10px;
+}
