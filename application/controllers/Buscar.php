@@ -9,6 +9,10 @@ class Buscar extends CI_Controller{
     $this->load->model('loja/busca_model');
     $this->load->model('loja_model');
   	$this->load->library('carrinhocompra');
+    if (!$this->ion_auth->logged_in())
+    {
+      redirect('/');
+    }
   }
 
   public function index()

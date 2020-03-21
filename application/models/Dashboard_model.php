@@ -13,12 +13,12 @@ class Dashboard_model extends CI_Model{
 
   public function getPedidos()
   {
-    $this->db->select('pedidos.id, pedidos.nome, pedidos.total_pedido, status_pedido.titulo_status');
-    $this->db->from('pedidos');
-    $this->db->join('status_pedido', 'status_pedido.id_status = pedidos.id_status');
-    $this->db->order_by('data_cadastro', 'desc');
-    $this->db->limit(10);
-    return $this->db->get()->result();
+    // $this->db->select('pedidos.id, pedidos.nome, pedidos.total_pedido, status_pedido.titulo_status');
+    // $this->db->from('pedidos');
+    // $this->db->join('status_pedido', 'status_pedido.id_status = pedidos.id_status');
+    // $this->db->order_by('data_cadastro', 'desc');
+    // $this->db->limit(10);
+    // return $this->db->get()->result();
   }
 
   public function getClientes()

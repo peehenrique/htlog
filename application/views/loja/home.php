@@ -63,10 +63,12 @@
 
 
   <?php endforeach; ?>
-  
-  <?php echo '<div class="paginacao">'.$links_paginacao.'</div>'; ?>
-
 
 
 </section>
 <!-- Ecommerce Products Ends -->
+
+
+  <footer class="footer footer-static footer-light">
+    <?php echo '<div class="paginacao">'.$links_paginacao.'</div>'; ?>
+    </footer>

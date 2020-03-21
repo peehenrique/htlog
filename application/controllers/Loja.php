@@ -10,6 +10,11 @@ class Loja extends CI_Controller {
 	$this->load->library('carrinhocompra');
 	$this->load->library('pagination');
 
+	if (!$this->ion_auth->logged_in())
+	{
+		redirect('/');
+	}
+
 }
 
 	public function index($pular=null,$produto_por_pagina=null)
