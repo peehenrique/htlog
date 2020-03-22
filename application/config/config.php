@@ -1,6 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+// https://bitbucket.org/wiredesignz/codeigniter-modular-extensions-hmvc/src/codeigniter-3.x/
+$config['modules_locations'] = array(
+    APPPATH.'modules/' => '../modules/',
+);
 /*
 |--------------------------------------------------------------------------
 | Base Site URL

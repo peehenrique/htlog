@@ -49,14 +49,12 @@ class Login extends CI_Controller{
     } else{
       $this->load->view('login/index');
     }
-
-
   }
 
 
   public function sair(){
     $this->ion_auth->logout();
-    redirect('/','refresh');
+    redirect('login','refresh');
   }
 
 

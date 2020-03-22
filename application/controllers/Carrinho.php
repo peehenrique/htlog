@@ -7,6 +7,7 @@ class Carrinho extends CI_Controller {
     parent::__construct();
 
     $this->load->model('loja_model');
+    $this->load->model('loja/checkout_model');
     $this->load->library('carrinhocompra');
     if (!$this->ion_auth->logged_in())
     {
@@ -24,10 +25,13 @@ class Carrinho extends CI_Controller {
     $data['categorias'] = $this->loja_model->getCategorias();
     $data['view'] = 'loja/carrinho';
     $data['carrinho'] = $this->carrinhocompra->listarProdutos();
-    //
+
+    $data['usuario'] = $this->checkout_model->getDadosUsuario($this->session->userdata['id_cliente']);
+
+
     // echo "<pre>";
-    // print_r($data['carrinho']);
-    // exit;
+    // print_r($data['usuario']);
+    // echo "</pre>";
 
     $this->load->view('loja/index', $data);
 

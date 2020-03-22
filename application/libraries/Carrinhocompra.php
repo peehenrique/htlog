@@ -60,7 +60,10 @@ class Carrinhocompra{
       $retorno[$indice]['id'] = $query->id;
       $retorno[$indice]['nome'] = $query->nome_produto;
       $retorno[$indice]['produto_foto'] = $query->foto;
+      // $retorno[$indice]['valor'] = $query->valor;
       $retorno[$indice]['qtd'] = $qtd;
+      // $retorno[$indice]['subtotal'] = number_format( $qtd * $query->valor, 2, '.', '');
+      // $retorno[$indice]['peso'] = $query->peso;
 
       $indice++;
     }
