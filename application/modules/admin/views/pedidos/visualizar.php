@@ -39,17 +39,16 @@
       <div class="col-sm-6 col-12 text-left">
         <h5>Descrição</h5>
         <div class="recipient-info my-2">
-          <p><?php echo $pedido->nome ?></p>
-          <p><?php echo $pedido->cpf ?></p>
+          <p><?php echo $pedido->ref ?></p>
         </div>
         <div class="recipient-contact pb-2">
           <p>
             <i class="feather icon-mail"></i>
-            <?php echo $pedido->email ?>
+          email
           </p>
           <p>
             <i class="feather icon-phone"></i>
-            <?php echo $pedido->telefone ?>
+            telefone
           </p>
         </div>
       </div>
@@ -88,8 +87,8 @@
             <tbody>
               <?php foreach ($itens as $item): ?>
                 <tr>
-                  <td><?php echo $item->nome_item ?></td>
-                  <td><?php echo $item->quantidade ?></td>
+                  <td><?php echo $item->nome_produto ?></td>
+                  <td><?php echo $item->qtd ?></td>
                 </tr>
               <?php endforeach; ?>
             </tbody>
@@ -98,15 +97,14 @@
       </div>
     </div>
 
-
     <!-- Invoice Footer -->
-    <div id="invoice-footer" class="text-right pt-3">
+    <!-- <div id="invoice-footer" class="text-right pt-3">
       <p>Texto rodape....
       </p><p class="bank-details mb-0">
         <span class="mr-4">INFO: <strong>FTSBUS33</strong></span>
         <span>INFO2: <strong>G882-1111-2222-3333</strong></span>
       </p>
-    </div>
+    </div> -->
     <!--/ Invoice Footer -->
 
   </div>

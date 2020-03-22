@@ -28,9 +28,9 @@ class Checkout_model extends CI_Model{
     }
   }
 
-  public function atualizarEstoque($qtd = null, $id_cliente = null)
+  public function atualizarEstoque($qtd = null, $id_produto = null)
   {
-      $this->db->update('produtos', $qtd, array('id' => $id_cliente));
+      $this->db->update('produtos', $qtd, array('id' => $id_produto));
   }
 
   public function getProdutoId($id = null)

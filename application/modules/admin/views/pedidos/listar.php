@@ -15,7 +15,6 @@
               <thead>
                 <tr>
                   <th scope="col">Numero do pedido</th>
-                  <th scope="col">Nome do Cliente</th>
                   <th scope="col" class="text-center">Status</th>
                   <th scope="col" class="text-right">Opções</th>
                 </tr>
@@ -26,8 +25,7 @@
                 <?php foreach ($pedidos as $pedido): ?>
 
                   <tr>
-                    <td><?php echo $pedido->id; ?></td>
-                    <td><?php echo $pedido->nome; ?></td>
+                    <td><?php echo $pedido->ref; ?></td>
                     <td><?php echo $pedido->titulo_status; ?></td>
                     <td class="text-right">
                       <a href="<?php echo base_url('admin/pedidos/mudar/'.$pedido->id.'') ?>" class="btn btn-primary btn-mudar-status-pedido">Mudar Status</a>

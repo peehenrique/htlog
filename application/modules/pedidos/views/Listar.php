@@ -26,9 +26,9 @@
                     foreach ($pedidos as $row) {
                       echo '<tr>';
                       echo '<td>'. $row->ref .'</td>';
-                      echo '<td>'. formataDataView($row->data_cadastro) .'</td>';
+                      echo '<td class="text-center">'. formataDataView($row->data_cadastro) .'</td>';
                       echo '<td class="text-center"><i class="fa fa-circle font-small-3 text-warning mr-50"></i>'. $row->titulo_status .'</td>';
-                      echo '<td><a href="#" class="btn btn-success">Visualizar Pedido</a></td>';
+                      echo '<td class="text-center"><a href="#" class="btn btn-success">Visualizar Pedido</a></td>';
                       echo "</tr>";
                     }
                     ?>
@@ -41,7 +41,6 @@
 
           </div>
         </div>
-
 
     </div>
 

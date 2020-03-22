@@ -17,7 +17,7 @@ class Buscar extends CI_Controller{
 
   public function index()
   {
-
+    $id_empresa = $this->session->userdata['id_empresa'];
     $query = $this->loja_model->getDadosLoja();
 		$data['titulo'] = $query->titulo;
     $data['categorias'] = $this->loja_model->getCategorias();
@@ -27,7 +27,7 @@ class Buscar extends CI_Controller{
 
 
     if ($this->input->post('palavra_chave')) {
-      $data['resultado'] = $this->busca_model->getBusca($this->input->post('palavra_chave'));
+      $data['resultado'] = $this->busca_model->getBusca($this->input->post('palavra_chave'), $id_empresa);
       $data['palavra_chave'] = $this->input->post('palavra_chave');
       $data['view'] = 'loja/buscar';
       $data['quantidadeProdutos'] = count($data['resultado']);

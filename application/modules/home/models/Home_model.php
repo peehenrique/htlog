@@ -24,7 +24,7 @@ class Home_model extends CI_Model{
     }
   }
 
-  public function getProdutos($pular=null,$produto_por_pagina=null)
+  public function getProdutos($pular=null,$produto_por_pagina=null,$id_empresa=null)
   {
     $this->db->select('produtos.id, produtos.nome_produto, produtos.valor, produtos.meta_link, produtos.informacao, produtos.estoque, produtos_fotos.foto, categorias.nome as nome_categoria');
     $this->db->from('produtos');
@@ -35,7 +35,7 @@ class Home_model extends CI_Model{
     }
     $this->db->join('produtos_fotos', 'produtos_fotos.id_produto = produtos.id', 'left');
     $this->db->join('categorias', 'categorias.id = produtos.id_categoria', 'left');
-    $this->db->where(['produtos.ativo' => 1]);
+    $this->db->where(['produtos.ativo' => 1, 'produtos.id_marca' => $id_empresa]);
     $this->db->order_by('produtos.id', 'RANDOM');
     $this->db->group_by('produtos.id');
     // $this->db->distinct();
@@ -58,6 +58,12 @@ class Home_model extends CI_Model{
   public function contarProdutos()
   {
     return $this->db->count_all('produtos');
+  }
+
+  public function getProdutosporEmpresa($id_empresa = null)
+  {
+    $this->db->where('id_marca', $id_empresa);
+    return $this->db->get('produtos')->result();
   }
 
 }

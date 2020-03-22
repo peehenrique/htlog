@@ -7,7 +7,7 @@ class Pedidos_model extends CI_Model{
   {
     $this->db->select('pedidos.*, status_pedido.*');
     $this->db->from('pedidos');
-    $this->db->join('status_pedido', 'status_pedido.id_status = pedidos.id_status');
+    $this->db->join('status_pedido', 'status_pedido.id_status = pedidos.status', 'left');
     return $this->db->get()->result();
   }
 
@@ -18,7 +18,7 @@ class Pedidos_model extends CI_Model{
   $this->db->limit(1);
   $this->db->select('pedidos.*, status_pedido.*');
   $this->db->from('pedidos');
-  $this->db->join('status_pedido', 'status_pedido.id_status = pedidos.id_status');
+  $this->db->join('status_pedido', 'status_pedido.id_status = pedidos.status');
   return $this->db->get()->row();
   }
 
@@ -41,8 +41,12 @@ class Pedidos_model extends CI_Model{
   public function getItens($id=NULL)
   {
     if ($id) {
+      $this->db->select('pedidos_produtos.*, produtos.nome_produto, produtos.id');
+      $this->db->from('pedidos_produtos');
       $this->db->where('id_pedido', $id);
-      return $this->db->get('pedidos_item')->result();
+      $this->db->join('produtos', 'produtos.id = pedidos_produtos.id_produto', 'left');
+
+      return $this->db->get()->result();
     }
   }
 

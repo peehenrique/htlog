@@ -20,8 +20,14 @@ class Home extends MX_Controller{
 
   public function index($pular=null,$produto_por_pagina=null)
   {
+
     $config['base_url'] = base_url('');
-    $config['total_rows'] = $this->home_model->contarProdutos();
+
+    $id_empresa = $this->session->userdata['id_empresa'];
+    $produtos = $this->home_model->getProdutosporEmpresa($id_empresa);
+
+    $config['total_rows'] = count($produtos);
+
     $produto_por_pagina = 10;
     $config['per_page'] = $produto_por_pagina;
 
@@ -31,9 +37,9 @@ class Home extends MX_Controller{
     $query = $this->home_model->getDadosLoja();
     $data['titulo'] = $query->titulo;
     $data['view'] = 'home';
-    $data['produtos'] = $this->home_model->getProdutos($pular,$produto_por_pagina);
+    $data['produtos'] = $this->home_model->getProdutos($pular,$produto_por_pagina,$id_empresa);
     $data['categorias'] = $this->home_model->getCategorias();
-    $data['quantidadeProdutos'] = $this->home_model->contarProdutos();
+    $data['quantidadeProdutos'] = count($produtos);
     $data['palavra_chave'] = "";
 
     $this->load->view('loja/index', $data);
