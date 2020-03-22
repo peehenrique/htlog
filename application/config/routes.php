@@ -55,6 +55,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 // ROTAS LOJA VIRTUAL COM CI
 $route['admin'] = 'admin/index';
+$route['finalizar-pedido'] = 'checkout/index';
 $route['admin/(:any)'] = 'admin/$1';
 $route['admin/(:any)/(:any)'] = 'admin/$1/$2';
 $route['admin/(:any)/(:any)/(:any)'] = 'admin/$1/$2/$3';

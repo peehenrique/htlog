@@ -12,14 +12,14 @@ var atualizarQtdCarrinho = function(){
 
       $.ajax({
         type: 'post',
-        url: url_loja +'carrinho/alterar',
+        url: url_loja +'checkout/alterar',
         data: {id:id_produto, qtd: qtd_compra},
         dataType: 'JSON'
       }).then (function(res){
 
         if (res.erro == 0) {
           // location.reload();
-          $(location).attr('href', url_loja+'carrinho');
+          $(location).attr('href', url_loja+'checkout');
         } else{
           alert(res.msg);
 
@@ -55,7 +55,7 @@ var atualizarQtdCarrinho = function(){
       } else{
         $.ajax({
           type: 'post',
-          url: url_loja +'carrinho/addProduto',
+          url: url_loja +'checkout/addProduto',
           data: {id:id_produto,qtd:qtd_produto,estoque:estoque_valor},
           dataType: 'JSON'
         }).then (function(res){
@@ -116,7 +116,7 @@ var removerItemCarrinho = function(){
 
     $.ajax({
       type: 'post',
-      url: url_loja +'carrinho/apagar_item',
+      url: url_loja +'checkout/apagar_item',
       data: {id:id_produto},
       dataType: 'JSON'
     }).then (function(res){
@@ -142,7 +142,7 @@ var limparCarrinho = function(){
 
     $.ajax({
       type: 'post',
-      url: url_loja +'carrinho/limpar',
+      url: url_loja +'checkout/limpar',
       data: {limpar:true},
       dataType: 'JSON'
     }).then (function(res){
@@ -163,7 +163,7 @@ var limparCarrinho = function(){
 
   var getCarrinhoitem = function(){
 
-    $.getJSON(url_loja+'carrinho/getCarrinhoTopo', function(res){
+    $.getJSON(url_loja+'checkout/getCarrinhoTopo', function(res){
 
       if (res.erro == 0) {
         $('.total-carrinho-menu').html(res.itens);
