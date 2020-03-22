@@ -66,7 +66,7 @@
               <li class="nav-item mobile-menu d-xl-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ficon feather icon-menu"></i></a></li>
             </ul>
 
-            <ul class="nav navbar-nav">
+            <!-- <ul class="nav navbar-nav">
               <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link" href="#" data-toggle="dropdown"><i class="feather icon-bar-chart-2"></i><span data-i18n="Charts &amp; Maps">Categorias</span></a>
                 <ul class="dropdown-menu">
 
@@ -80,7 +80,7 @@
 
                 </ul>
               </li>
-            </ul>
+            </ul> -->
 
 
           </div>

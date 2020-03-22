@@ -11,6 +11,11 @@ class Admin extends MX_Controller {
 			redirect('admin/login');
 		}
 
+    if ($this->ion_auth->in_group(2))
+    {
+      redirect('');
+    }
+
 		$this->load->model('dashboard_model');
 
 	}

@@ -5,13 +5,20 @@ class Clientes_model extends CI_Model{
 
   public function getClientes()
   {
-    return $this->db->get('clientes')->result();
+
+    $this->db->select('clientes.*, users.*');
+    $this->db->from('clientes');
+    $this->db->join('users', 'users.id_cliente = clientes.id', 'left');
+    return $this->db->get()->result();
   }
 
   public function doInsert($dados=NULL)
   {
     if (is_array($dados)) {
       $this->db->insert('clientes', $dados);
+      $id_cliente_new = $this->db->insert_id();
+      $this->session->set_userdata('id_cliente_new', $id_cliente_new);
+
       if ($this->db->affected_rows() > 0) {
         setMsg('msgCadastro', 'Cliente cadastrado com sucesso', 'sucesso');
       } else{
@@ -56,6 +63,20 @@ class Clientes_model extends CI_Model{
     }
   }
 
-  
+  public function getMarcas()
+  {
+    $this->db->where('ativo', 1);
+    $this->db->order_by('nome_marca', 'asc');
+    return $this->db->get('marca')->result();
+  }
+
+
+  public function getEmpresasDados($id=null)
+  {
+    $this->db->where('id_cliente', $id);
+    $this->db->limit(1);
+    return $this->db->get('users')->row();
+  }
+
 
 }

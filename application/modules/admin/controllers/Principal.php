@@ -17,6 +17,7 @@ class Principal extends MX_Controller {
 
 	public function index()
 	{
+
 		$data['titulo'] = "Dashboard";
 		$data['view'] = 'principal/dashboard';
 		$data['t_produtos']  = $this->dashboard_model->getTotal('produtos');

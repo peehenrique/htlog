@@ -21,6 +21,9 @@
               <?php if ($dados) { ?>
                 <input type="hidden" name="id_cliente" value="<?= $dados->id; ?>">
               <?php  }  ?>
+              <?php if ($empresadados) { ?>
+                <input type="hidden" name="id_usuario" value="<?= $empresadados->id; ?>">
+              <?php  }  ?>
               <?php
               errosValidacao();
               getMsg('msgCadastro');
@@ -30,62 +33,52 @@
 
                 <div class="row">
 
-                  <div class="col-6">
+                  <div class="col-4">
                     <div class="form-group">
-                      <label for="nome">Nome cliente</label>
+                      <label for="nome">Nome do usuário</label>
                       <input type="text" name="nome" class="form-control" placeholder="Nome*" value="<?php echo ( $dados != NULL ? $dados->nome : set_value('nome')); ?>">
                     </div>
                   </div>
 
-                  <div class="col-6">
+                  <div class="col-4">
                     <div class="form-group">
-                      <label for="nome">CPF</label>
-                      <input type="text" name="cpf" id="cpf" class="form-control" placeholder="CPF" value="<?php echo ( $dados != NULL ? $dados->cpf : set_value('cpf')); ?>">
+                      <label for="nome">CNPJ</label>
+                      <input type="text" name="cnpj" id="cnpj" class="form-control" placeholder="CNPJ" value="<?php echo ( $dados != NULL ? $dados->cnpj : set_value('cpf')); ?>">
                     </div>
                   </div>
 
-                </div>
-
-                <div class="row">
-
-                  <div class="col-6">
+                  <div class="col-4">
                     <div class="form-group">
                       <label for="nome">Telefone</label>
                       <input type="text" name="telefone" id="telefone" class="form-control" placeholder="Telefone" value="<?php echo ( $dados != NULL ? $dados->telefone : set_value('telefone')); ?>">
                     </div>
                   </div>
 
-                  <div class="col-6">
-                    <div class="form-group">
-                      <label for="nome">Data de nascimento</label>
-                      <input type="text" name="data_nascimento" id="data_nascimento" class="form-control" placeholder="Data de nascimento" value="<?php echo ( $dados != NULL ? date('d-m-Y', strtotime($dados->data_nascimento)) : set_value('data_nascimento')); ?>">
-                    </div>
-                  </div>
-
                 </div>
 
 
-                <div class="row">
+                <?php if (!$dados): ?>
+                  <div class="row">
 
-                  <div class="col-6">
-                    <div class="form-group">
-                      <label for="nome">Email</label>
-                      <input type="email" name="email" class="form-control" placeholder="Email" value="<?php echo ( $dados != NULL ? $dados->email : set_value('email')); ?>">
+                    <div class="col-6">
+                      <div class="form-group">
+                        <label for="nome">Email</label>
+                        <input type="email" name="email" class="form-control" placeholder="Email" value="">
+                      </div>
                     </div>
-                  </div>
 
-                  <div class="col-6">
-                    <div class="form-group">
-                      <label for="nome">Senha</label>
-                      <input type="password" name="senha" class="form-control" value="" placeholder="Senha">
+                    <div class="col-6">
+                      <div class="form-group">
+                        <label for="nome">Senha</label>
+                        <input type="password" name="senha" class="form-control" value="" placeholder="Senha">
+                      </div>
                     </div>
+
                   </div>
-
-                </div>
-
+                <?php endif; ?>
 
                 <div class="row">
-                  <div class="col-sm-12">
+                  <div class="col-sm-6">
                     <div class="form-group">
                       <label for="controlar_estoque">Status Cliente</label>
                       <select class="custom-select form-control" name="ativo">
@@ -96,6 +89,22 @@
                           <option value="0" >Inativo</option>
                           <option value="1" selected="selected">Ativo</option>
                         <?php } ?>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="eventLocation1">Empresa</label>
+                      <select class="custom-select form-control" name="id_marca">
+                        <option value="">Selecione uma marca</option>
+                        <?php foreach ($marcas as $marca): ?>
+                          <?php if($empresadados) { ?>
+                            <option value="<?php echo $marca->id; ?>" <?= ($marca->id == $empresadados->id_empresa ? 'selected="selected"' : '') ?>><?php echo $marca->nome_marca; ?></option>
+                          <?php } else{ ?>
+                            <option value="<?php echo $marca->id; ?>"><?php echo $marca->nome_marca; ?></option>
+                          <?php } ?>
+                        <?php endforeach; ?>
                       </select>
                     </div>
                   </div>

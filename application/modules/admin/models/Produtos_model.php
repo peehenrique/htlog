@@ -20,7 +20,6 @@ class Produtos_model extends CI_Model{
     $this->db->where('ativo', 1);
     $this->db->order_by('nome_marca', 'asc');
     return $this->db->get('marca')->result();
-
   }
 
   public function getCategorias()

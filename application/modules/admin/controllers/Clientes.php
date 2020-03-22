@@ -43,7 +43,9 @@ class Clientes extends CI_Controller {
     }
 
     $data['dados'] = $dados;
+    $data['empresadados'] = $this->clientes_model->getEmpresasDados($id_cliente);
     $data['view'] = 'admin/clientes/modulo';
+    $data['marcas'] = $this->clientes_model->getMarcas();
     $data['navegacao'] = array('titulo' => 'Lista clientes', 'link' => 'admin/clientes');
 
     $this->load->view('admin/template/index', $data);
@@ -53,26 +55,64 @@ class Clientes extends CI_Controller {
   {
 
     $this->form_validation->set_rules('nome', 'Nome', 'required|trim');
-    $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
 
     if ($this->form_validation->run() == TRUE) {
 
+      // ATUALIZA CLIENTE
+
+      // DADOS CLIENTE
       $dadosCliente['nome'] = $this->input->post('nome');
-      $dadosCliente['cpf'] = $this->input->post('cpf');
-      $dadosCliente['data_nascimento'] = formataDataDb($this->input->post('data_nascimento'));
+      $dadosCliente['cnpj'] = $this->input->post('cnpj');
       $dadosCliente['telefone'] = $this->input->post('telefone');
-      $dadosCliente['email'] = $this->input->post('email');
-      $dadosCliente['senha'] = $this->input->post('senha');
       $dadosCliente['ativo'] = $this->input->post('ativo');
 
+
+      // CLIENTE JA EXISTE E ATUALIZA NA BASE
       if ($this->input->post('id_cliente')) {
         $dadosCliente['ultima_atualizacao'] = dataDiaDb();
         $this->clientes_model->doUpdate($dadosCliente, $this->input->post('id_cliente'));
+
+        if ($this->input->post('id_marca')) {
+          $id_empresa = $this->input->post('id_marca');
+        } else{
+          $id_empresa = NULL;
+        }
+
+        //ATUALIZA USUARIO
+        $id = $this->input->post('id_usuario');
+        $data = array(
+          'id_empresa' => $id_empresa
+        );
+        $this->ion_auth->update($id, $data);
+
+
         redirect('admin/clientes', 'refresh');
 
       } else{
+        // CADASTRO DE NOVO CLIENTE
         $dadosCliente['data_cadastro'] = dataDiaDb();
         $this->clientes_model->doInsert($dadosCliente);
+
+        //RECUPERA ID DO CLIENTE CADASTRADO
+        $id_cliente_new = $this->session->userdata('id_cliente_new');
+
+        if ($this->input->post('id_marca')) {
+          $id_empresa = $this->input->post('id_marca');
+        } else{
+          $id_empresa = NULL;
+        }
+
+        // GRAVAMOS O USUARIO
+        $username = $this->input->post('nome');
+        $password = $this->input->post('senha');
+        $email = $this->input->post('email');
+        $additional_data = [
+          'id_cliente' => $id_cliente_new,
+          'id_empresa' => $id_empresa
+        ];
+        $group = [2];
+        $this->ion_auth->register($username, $password, $email, $additional_data, $group);
+
         redirect('admin/clientes/modulo', 'refresh');
       }
 
