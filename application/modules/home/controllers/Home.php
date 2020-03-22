@@ -10,11 +10,17 @@ class Home extends MX_Controller{
     $this->load->model('home_model');
     $this->load->library('carrinhocompra');
     $this->load->library('pagination');
+
+    if (!$this->ion_auth->logged_in())
+    {
+      redirect('login');
+    }
+
   }
 
   public function index($pular=null,$produto_por_pagina=null)
   {
-    $config['base_url'] = base_url();
+    $config['base_url'] = base_url('');
     $config['total_rows'] = $this->home_model->contarProdutos();
     $produto_por_pagina = 10;
     $config['per_page'] = $produto_por_pagina;

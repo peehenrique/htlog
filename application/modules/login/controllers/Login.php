@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Login extends CI_Controller{
+class Login extends MX_Controller{
 
   public function __construct()
   {
@@ -14,7 +14,7 @@ class Login extends CI_Controller{
 
     if ($this->ion_auth->logged_in() && $this->ion_auth->in_group(2))
     {
-      redirect('loja');
+      redirect('');
     }
 
     $this->form_validation->set_rules('email', 'E-mail', 'required');
@@ -33,12 +33,12 @@ class Login extends CI_Controller{
           if ($this->carrinhocompra->totalItem() != 0) {
             redirect('checkout', 'refresh');
           } else{
-            redirect('loja', 'refresh');
+            redirect('', 'refresh');
           }
 
         } else{
           $this->ion_auth->logout();
-          redirect('/','refresh');
+          redirect('','refresh');
         }
 
 
