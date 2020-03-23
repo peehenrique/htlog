@@ -52,7 +52,7 @@
         <div class="item-options text-center">
 
           <div class="cart btn-add-to-cart" data-id="<?php echo $produto->id ?>">
-            <i class="feather icon-shopping-cart"></i> <span class="add-to-cart">Adicionar ao carrinho</span> <a href="<?php echo base_url('carrinho'); ?>" class="view-in-cart d-none">Visualizar carrinho</a>
+            <i class="feather icon-shopping-cart"></i> <span class="add-to-cart">Adicionar ao carrinho</span> <a href="<?php echo base_url('checkout'); ?>" class="view-in-cart d-none">Visualizar carrinho</a>
           </div>
 
         </div>

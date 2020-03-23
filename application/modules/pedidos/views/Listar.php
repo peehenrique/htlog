@@ -1,49 +1,46 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <p>Ola, <strong><?php echo $user->username ?></strong></p>
+<section class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Últimos pedidos</h4>
+      </div>
+      <div class="card-content">
+        <div class="card-body">
 
-        <div class="col-lg-12 col-md-6 col-12">
-          <div class="card">
+          <div class="table-responsive">
+            <table class="table zero-configuration">
+              <thead>
+                <tr>
+                  <th scope="col">Numero do pedido</th>
+                  <th scope="col" class="text-center">Status</th>
+                  <th scope="col" class="text-center">Data enviado</th>
+                  <th scope="col" class="text-right">Opções</th>
+                </tr>
+              </thead>
 
-            <div class="card-header d-flex justify-content-between align-items-end">
-              <h4 class="card-title">Ultimos pedidos</h4>
-            </div>
-            <div class="card-content">
-              <div class="card-body pb-0">
-                <table class="table table-hover-animation mb-0">
-                  <thead>
-                    <tr>
-                      <th scope="col">REF</th>
-                      <th scope="col" class="text-center">Data enviado</th>
-                      <th scope="col" class="text-center">Status</th>
-                      <th scope="col" class="text-center">Opções</th>
-                    </tr>
-                  </thead>
+              <tbody>
 
-                  <tbody>
-                    <?php
-                    foreach ($pedidos as $row) {
-                      echo '<tr>';
-                      echo '<td>'. $row->ref .'</td>';
-                      echo '<td class="text-center">'. formataDataView($row->data_cadastro) .'</td>';
-                      echo '<td class="text-center"><i class="fa fa-circle font-small-3 text-warning mr-50"></i>'. $row->titulo_status .'</td>';
-                      echo '<td class="text-center"><a href="#" class="btn btn-success">Visualizar Pedido</a></td>';
-                      echo "</tr>";
-                    }
-                    ?>
-                  </tbody>
+                <?php foreach ($pedidos as $pedido): ?>
 
-                </table>
+                  <tr>
+                    <td><?php echo $pedido->ref; ?></td>
+                    <td><?php echo $pedido->titulo_status; ?></td>
+                    <td><?php echo formataDataView($pedido->data_cadastro) ?></td>
+                    <td class="text-right">
+                      <a href="<?php echo base_url('pedidos/pedido/'.$pedido->id.'') ?>" class="btn btn-success">Visualizar Pedido</a>
+                    </td>
+                  </tr>
 
-              </div>
-            </div>
+                <?php endforeach; ?>
 
+              </tbody>
+
+            </table>
           </div>
+
+
         </div>
-
+      </div>
     </div>
-
   </div>
-
-</div>
+</section>

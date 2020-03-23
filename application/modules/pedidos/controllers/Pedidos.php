@@ -32,4 +32,23 @@ class Pedidos extends MX_Controller {
 
   }
 
+  public function pedido($id=null)
+  {
+
+    $query = $this->pedidos_model->getPedidoId($id);
+    if (!$query) {
+      echo "Erro ao tentar imprimir o ID enviado";
+      exit;
+    }
+
+    $data['titulo'] = "Pedido";
+    $data['view'] = 'pedidos/pedido';
+    $data['pedido'] = $query;
+    $data['itens'] = $this->pedidos_model->getItens($query->id);
+
+    $this->load->view('loja/index', $data);
+  }
+
+
+
 }

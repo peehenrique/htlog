@@ -31,6 +31,8 @@
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('/public/novo/app-assets/css/pages/app-ecommerce-shop.css') ?>">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('/public/novo/app-assets/css/plugins/forms/wizard.css') ?>">
   <link rel="stylesheet" type="text/css" href=".<?php echo base_url('/public/novo/app-assets/css/plugins/extensions/toastr.css') ?>">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url('/public/novo/app-assets/vendors/css/tables/datatable/datatables.min.css'); ?>">
+
 <!-- END: Page CSS-->
 
   <!-- END: Page CSS-->
@@ -140,7 +142,12 @@
 <script src="<?php echo base_url('/public/novo/app-assets/vendors/js/extensions/jquery.steps.min.js') ?>"></script>
 <script src="<?php echo base_url('/public/novo/app-assets/vendors/js/forms/validation/jquery.validate.min.js') ?>"></script>
 <script src="<?php echo base_url('/public/novo/app-assets/vendors/js/extensions/toastr.min.js') ?>"></script>
-<script src="<?php echo base_url('/public/novo/app-assets/vendors/js/pagination/jquery.twbsPagination.min.js') ?>"></script>
+<script src="<?php echo base_url('/public/novo/app-assets/vendors/js/tables/datatable/vfs_fonts.js') ?>"></script>
+<script src="<?php echo base_url('/public/novo/app-assets/vendors/js/tables/datatable/datatables.min.js') ?>"></script>
+<script src="<?php echo base_url('/public/novo/app-assets/vendors/js/tables/datatable/datatables.buttons.min.js') ?>"></script>
+<script src="<?php echo base_url('/public/novo/app-assets/vendors/js/tables/datatable/buttons.bootstrap.min.js') ?>"></script>
+<script src="<?php echo base_url('/public/novo/app-assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js') ?>"></script>
+
 
 <!-- END: Page Vendor JS-->
 
@@ -153,6 +160,8 @@
 <!-- BEGIN: Page JS-->
 <script src="<?php echo base_url('/public/novo/app-assets/js/scripts/pages/app-ecommerce-shop.js'); ?>"></script>
 <script src="<?php echo base_url('/public/novo/app-assets/js/scripts/pagination/pagination.js'); ?>"></script>
+<script src="<?php echo base_url('/public/novo/app-assets/js/scripts/datatables/datatable.js') ?>"></script>
+
 <!-- END: Page JS-->
 
 <script src="<?php echo base_url('/public/dist/jquery-mask/dist/jquery.mask.min.js'); ?>"></script>

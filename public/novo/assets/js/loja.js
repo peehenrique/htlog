@@ -122,7 +122,7 @@ var removerItemCarrinho = function(){
     }).then (function(res){
 
       if (res.erro == 0) {
-        $(location).attr('href', url_loja+'carrinho');
+        $(location).attr('href', url_loja+'checkout');
         // $(this).closest(".ecommerce-card").remove();
       } else{
 

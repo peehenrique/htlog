@@ -29,7 +29,6 @@
 
   <link href="http://hayageek.github.io/jQuery-Upload-File/4.0.11/uploadfile.css" rel="stylesheet">
 
-
   <!-- END: Page CSS-->
 
   <!-- BEGIN: Custom CSS-->
@@ -59,7 +58,7 @@
       <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
         <li class=" navigation-header"><span>Menu</span>
         </li>
-        <li class="<?php if($this->uri->uri_string()=="admin/principal"){echo 'active';}elseif($this->uri->uri_string()=="admin"){echo 'active';}?> nav-item"><a href="<?php echo base_url('admin') ?>"><i class="feather icon-home"></i><span class="menu-title">Dashboard</span></a>
+        <li class="<?php if($this->uri->uri_string()=="admin/principal"){echo 'active';}elseif($this->uri->uri_string()=="admin"){echo 'active';}?> nav-item"><a href="<?php echo base_url('admin/principal') ?>"><i class="feather icon-home"></i><span class="menu-title">Dashboard</span></a>
         </li>
         <li class="<?php if($this->uri->uri_string()=="admin/pedidos"){echo 'active';}?> nav-item"><a href="<?php echo base_url('admin/pedidos') ?>"><i class="feather icon-inbox"></i><span class="menu-title">Pedidos</span></a>
         </li>

@@ -10,6 +10,7 @@ class Categorias extends CI_Controller {
     {
       redirect('admin/login');
     }
+  
 
     $this->load->model('categorias_model');
 

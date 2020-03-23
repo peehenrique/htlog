@@ -19,7 +19,7 @@ class Dashboard_model extends CI_Model{
     $this->db->from('pedidos');
     $this->db->join('status_pedido', 'status_pedido.id_status = pedidos.status', 'left');
     $this->db->limit(5);
-    $this->db->order_by('data_cadastro', 'desc');
+    $this->db->order_by('pedidos.id', 'desc');
     return $this->db->get()->result();
   }
 

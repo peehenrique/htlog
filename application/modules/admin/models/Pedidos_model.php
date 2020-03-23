@@ -8,6 +8,7 @@ class Pedidos_model extends CI_Model{
     $this->db->select('pedidos.*, status_pedido.*');
     $this->db->from('pedidos');
     $this->db->join('status_pedido', 'status_pedido.id_status = pedidos.status', 'left');
+    $this->db->order_by('pedidos.id', 'desc');
     return $this->db->get()->result();
   }
 

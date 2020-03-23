@@ -17,9 +17,15 @@ class Pedidos extends CI_Controller{
 
   function index()
   {
+
     $data['titulo'] = "Lista de Pedidos";
     $data['view'] = 'admin/pedidos/listar';
     $data['pedidos'] = $this->pedidos_model->getPedidos();
+
+    // echo "<pre>";
+    // print_r($data['pedidos']);
+    // exit;
+
     $this->load->view('admin/template/index', $data);
   }
 
@@ -60,7 +66,7 @@ class Pedidos extends CI_Controller{
     $this->pedidos_model->doUpdate($pedido, $id_pedido);
 
     redirect('admin/pedidos', 'refresh');
-    
+
   }
 
   public function mudar($id=NULL)
