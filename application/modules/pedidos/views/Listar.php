@@ -24,7 +24,23 @@
 
                   <tr>
                     <td><?php echo $pedido->ref; ?></td>
-                    <td><?php echo $pedido->titulo_status; ?></td>
+                    <?php
+                    switch ($pedido->status) {
+                      case 2:
+                        echo '<td><p class="text-info">'.$pedido->titulo_status.'</p></td>';
+                        break;
+                      case 3:
+                        echo '<td><p class="text-info">'.$pedido->titulo_status.'</p></td>';
+                        break;
+                      case 4:
+                        echo '<td><p class="text-success">'.$pedido->titulo_status.'</p></td>';
+                        break;
+
+                      default:
+                        echo '<td><p class="text-warning">'.$pedido->titulo_status.'</p></td>';
+                        break;
+                    }
+                    ?>
                     <td><?php echo formataDataView($pedido->data_cadastro) ?></td>
                     <td class="text-right">
                       <a href="<?php echo base_url('pedidos/pedido/'.$pedido->id.'') ?>" class="btn btn-success">Visualizar Pedido</a>

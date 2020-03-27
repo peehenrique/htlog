@@ -32,3 +32,21 @@
   width: 25%;
   margin-right: 10px;
 }
+
+.text-success{
+    color: #28C76F !important;
+    font-weight: bold !important;
+}
+
+.text-warning{
+  color: #FF9F43 !important;
+  font-weight: bold !important;
+}
+.text-danger{
+  color: #EA5455 !important;
+  font-weight: bold !important;
+}
+.text-info{
+  color: #00CFE8 !important;
+  font-weight: bold !important;
+}

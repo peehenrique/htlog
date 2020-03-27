@@ -33,7 +33,7 @@
   <link rel="stylesheet" type="text/css" href=".<?php echo base_url('/public/novo/app-assets/css/plugins/extensions/toastr.css') ?>">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('/public/novo/app-assets/vendors/css/tables/datatable/datatables.min.css'); ?>">
 
-<!-- END: Page CSS-->
+  <!-- END: Page CSS-->
 
   <!-- END: Page CSS-->
 
@@ -69,41 +69,48 @@
             </ul>
 
             <!-- <ul class="nav navbar-nav">
-              <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link" href="#" data-toggle="dropdown"><i class="feather icon-bar-chart-2"></i><span data-i18n="Charts &amp; Maps">Categorias</span></a>
-                <ul class="dropdown-menu">
+            <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link" href="#" data-toggle="dropdown"><i class="feather icon-bar-chart-2"></i><span data-i18n="Charts &amp; Maps">Categorias</span></a>
+            <ul class="dropdown-menu">
 
-                  <?php foreach ($categorias as $categoria):?>
+            <?php foreach ($categorias as $categoria):?>
 
-                    <li data-menu="">
-                      <a class="dropdown-item" href="<?php echo base_url('categoria/'. $categoria->meta_link) ?>" data-toggle="dropdown"><?php echo $categoria->nome ?></a>
-                    </li>
-
-                  <?php endforeach; ?>
-
-                </ul>
-              </li>
-            </ul> -->
-
-
-          </div>
-          <ul class="nav navbar-nav float-right">
-            <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-expand"><i class="ficon feather icon-maximize"></i></a></li>
-
-            <li class="dropdown dropdown-notification nav-item"><a class="nav-link nav-link-label" href="<?php echo base_url('finalizar-pedido'); ?>"><i class="ficon feather icon-shopping-cart"></i>
-              <span class="badge badge-pill badge-primary badge-up total-carrinho-menu">0</span></a>
-            </li>
-            <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
-              <div class="user-nav d-sm-flex d-none"><span class="user-name text-bold-600"><?php echo $this->session->userdata['username'] ?></span></div><span><img class="round" src="<?php echo base_url('public/novo/app-assets/images/portrait/small/avatar-s-11.jpg'); ?> " alt="avatar" width="40" height="40"></span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#"><i class="feather icon-user"></i> Editar perfil</a>
-              <a class="dropdown-item" href="<?php echo base_url('pedidos'); ?>"><i class="feather icon-mail"></i> Meus pedidos</a>
-              <div class="dropdown-divider"></div><a class="dropdown-item" href="<?php echo base_url('login/sair'); ?>"><i class="feather icon-power"></i> Sair</a>
-            </div>
+            <li data-menu="">
+            <a class="dropdown-item" href="<?php echo base_url('categoria/'. $categoria->meta_link) ?>" data-toggle="dropdown"><?php echo $categoria->nome ?></a>
           </li>
-        </ul>
-      </div>
-    </div>
+
+        <?php endforeach; ?>
+
+      </ul>
+    </li>
+  </ul> -->
+  <ul class="nav navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="<?php echo base_url('/'); ?>">
+        <i class="feather icon-package"></i>
+        <span class="selected-language">Listar Produtos</span>
+      </a>
+    </li>
+  </ul>
+
+</div>
+<ul class="nav navbar-nav float-right">
+  <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-expand"><i class="ficon feather icon-maximize"></i></a></li>
+
+  <li class="dropdown dropdown-notification nav-item"><a class="nav-link nav-link-label" href="<?php echo base_url('finalizar-pedido'); ?>"><i class="ficon feather icon-shopping-cart"></i>
+    <span class="badge badge-pill badge-primary badge-up total-carrinho-menu">0</span></a>
+  </li>
+  <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
+    <div class="user-nav d-sm-flex d-none"><span class="user-name text-bold-600"><?php echo $this->session->userdata['username'] ?></span></div><span><img class="round" src="<?php echo base_url('public/novo/app-assets/images/portrait/small/avatar-s-11.jpg'); ?> " alt="avatar" width="40" height="40"></span>
+  </a>
+  <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="<?php echo base_url('minha-conta'); ?>"><i class="feather icon-user"></i> Editar perfil</a>
+    <a class="dropdown-item" href="<?php echo base_url('pedidos'); ?>"><i class="feather icon-mail"></i> Meus pedidos</a>
+    <div class="dropdown-divider"></div><a class="dropdown-item" href="<?php echo base_url('login/sair'); ?>"><i class="feather icon-power"></i> Sair</a>
   </div>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </nav>
 
 <!-- BEGIN: Content-->

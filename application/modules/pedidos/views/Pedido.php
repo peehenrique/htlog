@@ -14,7 +14,6 @@
 
 <section class="card invoice-page">
   <div id="invoice-template" class="card-body">
-    <!-- Invoice Company Details -->
     <div id="invoice-company-details" class="row">
       <div class="col-sm-6 col-12 text-left pt-1">
         <div class="media pt-1">
@@ -34,7 +33,7 @@
 
     <div id="invoice-customer-details" class="row pt-2">
       <div class="col-sm-6 col-12 text-left">
-        <h5>Resumo do pedido</h5>
+        <!-- <h5>Resumo do pedido</h5>
         <div class="recipient-info my-2">
           <p><?php echo $pedido->ref ?></p>
         </div>
@@ -47,11 +46,29 @@
             <i class="feather icon-phone"></i>
             telefone
           </p>
-        </div>
+        </div> -->
       </div>
       <div class="col-sm-6 col-12 text-right">
-        <h4>STATUS DO PEDIDO:</h4>
-        <h5><?php echo $pedido->titulo_status; ?></h5>
+        <h4>STATUS DO PEDIDO</h4>
+        <?php
+
+        switch ($pedido->status) {
+          case 2:
+            echo '<p class="text-info">'.$pedido->titulo_status.'</p>';
+            break;
+          case 3:
+            echo '<p class="text-info">'.$pedido->titulo_status.'</p>';
+            break;
+          case 4:
+            echo '<p class="text-success">'.$pedido->titulo_status.'</p>';
+            break;
+
+          default:
+            echo '<p class="text-warning">'.$pedido->titulo_status.'</p>';
+            break;
+        }
+
+            ?>
 
       </div>
     </div>

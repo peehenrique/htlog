@@ -1,4 +1,4 @@
-<?php $this->load->view('loja/includes/top'); ?>
+<?php $this->load->view('home/top_header'); ?>
 
 <?php if ($resultado){ ?>
 
