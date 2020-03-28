@@ -22,11 +22,9 @@ class Pedidos extends CI_Controller{
     $data['view'] = 'admin/pedidos/listar';
     $data['pedidos'] = $this->pedidos_model->getPedidos();
 
-    // echo "<pre>";
-    // print_r($data['pedidos']);
-    // exit;
 
     $this->load->view('admin/template/index', $data);
+
   }
 
   public function getPedido($id=NULL)
@@ -86,26 +84,37 @@ class Pedidos extends CI_Controller{
   public function imprimir($id=NULL)
   {
 
-      if (!$id) {
-        echo "Precisa enviar um ID para poder imprimir";
-        exit;
-      }
+    if (!$id) {
+      echo "Precisa enviar um ID para poder imprimir";
+      exit;
+    }
 
-      $query = $this->pedidos_model->getPedidoId($id);
-      if (!$query) {
-        echo "Erro ao tentar imprimir o ID enviado";
-        exit;
-      }
+    $data['itens'] = $this->pedidos_model->getItens($id);
 
-      $data['titulo'] = 'Imprimir pedido [#'.$query->id.']';
-      $data['pedido'] = $query;
-      $data['config'] = $this->pedidos_model->getDadosLoja();
-      $data['itens'] = $this->pedidos_model->getItens($query->id);
+    $this->load->view('admin/pedidos/imprimir', $data);
+    
+    // Get output html
+    $html = $this->output->get_output();
 
-      $data['view'] = 'admin/pedidos/imprimir';
-      $this->load->view('admin/template/pedido_imprimir', $data);
+    // Load pdf library
+    $this->load->library('pdf');
+
+    // Load HTML content
+    $this->dompdf->loadHtml($html);
+
+    // (Optional) Setup the paper size and orientation
+    $this->dompdf->setPaper('A4', 'landscape');
+
+    // Render the HTML as PDF
+    $this->dompdf->render();
+
+    // Output the generated PDF (1 = download and 0 = preview)
+    $this->dompdf->stream("pedido-$id.pdf", array("Attachment"=>0));
+
 
   }
+
+
 
   public function visualizar($id=NULL)
   {
@@ -129,5 +138,7 @@ class Pedidos extends CI_Controller{
     $this->load->view('admin/template/index', $data);
 
   }
+
+
 
 }

@@ -159,6 +159,9 @@
   <script src="<?php echo base_url('/public/dist/jquery-mask/dist/jquery.mask.min.js'); ?>"></script>
 
   <script src="<?php echo base_url('/public/js/main.js'); ?>"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+
+  <script src="<?php echo base_url('/public/js/custom.js'); ?>"></script>
 
 </body>
 <!-- END: Body-->

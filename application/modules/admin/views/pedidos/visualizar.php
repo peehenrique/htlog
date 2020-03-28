@@ -7,13 +7,14 @@
       </div>
     </fieldset>
     <div class="col-12 col-md-7 d-flex flex-column flex-md-row justify-content-end">
-      <button class="btn btn-primary btn-imprimir mb-1 mb-md-0 waves-effect waves-light"> <i class="feather icon-file-text"></i> Imprimir</button>
+      <a href="<?php echo base_url('admin/pedidos/imprimir/'.$pedido->id); ?>" target="_blank" class="btn btn-primary btn-imprimir mb-1 mb-md-0 waves-effect waves-light"> <i class="feather icon-file-text"></i> Imprimir</a>
       <button class="btn btn-outline-primary btn-download  ml-0 ml-md-1 waves-effect waves-light"> <i class="feather icon-download"></i> Download</button>
     </div>
   </div>
 </section>
 
-<section class="card invoice-page">
+
+<section class="card invoice-page" id="conteudo">
   <div id="invoice-template" class="card-body">
     <!-- Invoice Company Details -->
     <div id="invoice-company-details" class="row">
@@ -96,6 +97,10 @@
         </div>
       </div>
     </div>
+
+<!--
+    <div id="editor"></div>
+    <button class="btGerarPDF">gerar PDF</button> -->
 
     <!-- Invoice Footer -->
     <!-- <div id="invoice-footer" class="text-right pt-3">
