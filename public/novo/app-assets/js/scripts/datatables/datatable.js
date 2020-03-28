@@ -13,6 +13,7 @@ $(document).ready(function() {
     *       js of zero configuration        *
     ****************************************/
 
+
     $('.zero-configuration').DataTable({
       "language": {
         "sEmptyTable": "Nenhum registro encontrado",
@@ -43,7 +44,8 @@ $(document).ready(function() {
             "1": "Selecionado 1 linha"
           }
         }
-      }
+      },
+      "order": [[ 3, "desc" ]]
     });
 
     /********************************************

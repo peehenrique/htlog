@@ -25,7 +25,7 @@
               <thead>
                 <tr>
                   <th scope="col">Empresa</th>
-                  <th scope="col">CNPJ</th>
+                  <th scope="col">CPF</th>
                   <th scope="col">E-mail</th>
                   <th scope="col" class="text-center">Status</th>
                   <th scope="col" class="text-right">Opções</th>
@@ -37,7 +37,7 @@
                 foreach ($clientes as $row) {
                   echo '<tr>';
                   echo '<td>'. $row->nome .'</td>';
-                  echo '<td>'. $row->cnpj .'</td>';
+                  echo '<td>'. $row->cpf .'</td>';
                   echo '<td>'. $row->email .'</td>';
                   echo '<td class="text-center">'. ($row->ativo == 1? '<span class="label label-success">Ativo</span>' : '<span class="label label-danger">Inativo</span>').'</td>';
                   echo "<td class='text-right'>";

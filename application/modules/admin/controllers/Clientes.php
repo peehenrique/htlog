@@ -32,6 +32,7 @@ class Clientes extends CI_Controller {
 
       $dados = $this->clientes_model->getClientesId($id_cliente);
 
+
       if (!$dados) {
         setMsg('msgCadastro', 'Cliente nao econtrado', 'erro');
         redirect('admin/clientes', 'refresh');
@@ -62,13 +63,13 @@ class Clientes extends CI_Controller {
 
       // DADOS CLIENTE
       $dadosCliente['nome'] = $this->input->post('nome');
-      $dadosCliente['cnpj'] = $this->input->post('cnpj');
+      $dadosCliente['cpf'] = $this->input->post('cpf');
       $dadosCliente['telefone'] = $this->input->post('telefone');
       $dadosCliente['ativo'] = $this->input->post('ativo');
 
-
       // CLIENTE JA EXISTE E ATUALIZA NA BASE
       if ($this->input->post('id_cliente')) {
+
         $dadosCliente['ultima_atualizacao'] = dataDiaDb();
         $this->clientes_model->doUpdate($dadosCliente, $this->input->post('id_cliente'));
 
@@ -81,10 +82,12 @@ class Clientes extends CI_Controller {
         //ATUALIZA USUARIO
         $id = $this->input->post('id_usuario');
         $data = array(
-          'id_empresa' => $id_empresa
+          'nome' => $this->input->post('nome'),
+          'id_empresa' => $id_empresa,
+          'email' => $this->input->post('email'),
+          'password' => $this->input->post('senha')
         );
         $this->ion_auth->update($id, $data);
-
 
         redirect('admin/clientes', 'refresh');
 
