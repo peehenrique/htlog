@@ -16,7 +16,11 @@ class Home extends MX_Controller{
       redirect('login');
     }
 
-    $this->perPage = 15;
+    if ($this->ion_auth->in_group(1)) {
+      redirect('admin/principal', 'refresh');
+    }
+
+    // $this->perPage = 15;
 
   }
 

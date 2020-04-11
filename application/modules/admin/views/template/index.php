@@ -88,13 +88,10 @@
           <ul class="menu-content">
             <li><a href=""><i class="feather icon-circle"></i><span class="menu-item">Config Geral</span></a>
             </li>
-            <li class="<?php if($this->uri->uri_string()=="admin/usuarios"){echo 'active';}?>"><a href="<?php echo base_url('admin/usuarios') ?>"><i class="feather icon-circle"></i><span class="menu-item">Usuários</span></a>
-            </li>
           </ul>
         </li>
         <li class=" nav-item"><a href="<?php echo base_url('admin/login/sair'); ?>"><i class="feather icon-log-out"></i><span class="menu-title">Sair</span></a>
         </li>
-
       </ul>
     </div>
   </div>

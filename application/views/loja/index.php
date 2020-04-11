@@ -100,7 +100,7 @@
     <span class="badge badge-pill badge-primary badge-up total-carrinho-menu">0</span></a>
   </li>
   <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
-    <div class="user-nav d-sm-flex d-none"><span class="user-name text-bold-600"><?php echo $this->session->userdata['username'] ?></span></div><span><img class="round" src="<?php echo base_url('public/novo/app-assets/images/portrait/small/avatar-s-11.jpg'); ?> " alt="avatar" width="40" height="40"></span>
+    <div class="user-nav d-sm-flex d-none"><span class="user-name text-bold-600"><?php echo $this->session->userdata['username'] ?></span></div><span><img class="round" src="<?php echo base_url('public/novo/app-assets/images/logo_agencia.png'); ?> " alt="avatar" width="45" height="40"></span>
   </a>
   <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="<?php echo base_url('minha-conta'); ?>"><i class="feather icon-user"></i> Editar perfil</a>
     <a class="dropdown-item" href="<?php echo base_url('pedidos'); ?>"><i class="feather icon-mail"></i> Meus pedidos</a>
