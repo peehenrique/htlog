@@ -79,19 +79,19 @@ $(document).ready(function () {
   });
 
   // For View in cart
-  cart.on("click", function () {
-    var $this = $(this),
-    addToCart = $this.find(".add-to-cart"),
-    viewInCart = $this.find(".view-in-cart");
-    if(addToCart.is(':visible')) {
-      addToCart.addClass("d-none");
-      viewInCart.addClass("d-inline-block");
-    }
-    else{
-      var href= viewInCart.attr('href');
-      window.location.href = href;
-    }
-  });
+  // cart.on("click", function () {
+  //   var $this = $(this),
+  //   addToCart = $this.find(".add-to-cart"),
+  //   viewInCart = $this.find(".view-in-cart");
+  //   if(addToCart.is(':visible')) {
+  //     addToCart.addClass("d-none");
+  //     viewInCart.addClass("d-inline-block");
+  //   }
+  //   else{
+  //     var href= viewInCart.attr('href');
+  //     window.location.href = href;
+  //   }
+  // });
 
   $(".view-in-cart").on('click', function(e){
     e.preventDefault();

@@ -115,7 +115,7 @@ $(document).ready(function () {
 
   // Slow Duration
   $('#slow-duration').on('click', function () {
-    toastr.warning('Have fun storming the castle!', 'Slow Duration', { "hideDuration": 3000 });
+    toastr.success('Have fun storming the castle!', 'Slow Duration', { "hideDuration": 3000 });
   });
 
   // Timeout

@@ -36,6 +36,7 @@ class Checkout extends MX_Controller {
 
   public function pedido()
   {
+
     $carrinho = $this->carrinhocompra->listarProdutos();
 
     $this->form_validation->set_rules('nome', 'Nome completo', 'required|trim');
@@ -43,7 +44,6 @@ class Checkout extends MX_Controller {
 
       $id_cliente = $this->session->userdata['id_cliente'];
       $ref_pedido = random_string('numeric', 8);
-
 
       //GRAVA PEDIDO
       $pedido = [
@@ -91,17 +91,34 @@ class Checkout extends MX_Controller {
 
   public function addProduto()
   {
+
     if ($this->input->post('id')) {
       $id = $this->input->post('id');
       $qtd = $this->input->post('qtd');
 
       $estoque = $this->input->post('estoque');
 
-      if ($qtd > $estoque) {
+      $carrinho = $this->carrinhocompra->listarProdutos();
+
+      foreach ($carrinho as $indice => $linha) {
+
+        if ($id == $linha['id']) {
+          $produtoQtdCarrinho = $linha['qtd'];
+        }
+
+      }
+
+      $qtd_Carrinho = $qtd + $produtoQtdCarrinho;
+
+      if ($qtd_Carrinho > $estoque) {
+
+        $json = ['erro' => 15, 'msg' => 'Voce ja selecionou todo o estoque disponivel'];
+        echo json_encode($json);
+
+      } elseif($qtd > $estoque){
         $json = ['erro' => 16, 'msg' => 'Selecione o estoque disponivel'];
         echo json_encode($json);
       } else{
-
         $this->carrinhocompra->add($id, $qtd);
 
         $json = ['erro' => 0, 'msg' => 'Produto adicionado ao carrinho', 'itens' => $this->carrinhocompra->totalItem()];

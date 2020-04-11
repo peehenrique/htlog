@@ -14,8 +14,8 @@
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('/public/novo/app-assets/vendors/css/extensions/nouislider.min.css'); ?>">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('/public/novo/app-assets/vendors/css/ui/prism.min.css') ?>">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('/public/novo/app-assets/vendors/css/forms/select/select2.min.css') ?>">
-  <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/forms/spinner/jquery.bootstrap-touchspin.css">
-  <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/extensions/toastr.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url('/public/novo/app-assets/vendors/css/forms/spinner/jquery.bootstrap-touchspin.css'); ?>">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url('/public/novo/app-assets/vendors/css/extensions/toastr.css'); ?>">
   <!-- END: Vendor CSS-->
 
   <!-- BEGIN: Theme CSS-->
@@ -30,7 +30,8 @@
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('/public/novo/app-assets/css/plugins/extensions/noui-slider.min.css') ?>">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('/public/novo/app-assets/css/pages/app-ecommerce-shop.css') ?>">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('/public/novo/app-assets/css/plugins/forms/wizard.css') ?>">
-  <link rel="stylesheet" type="text/css" href=".<?php echo base_url('/public/novo/app-assets/css/plugins/extensions/toastr.css') ?>">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url('/public/novo/app-assets/css/plugins/extensions/toastr.css') ?>">
+
   <link rel="stylesheet" type="text/css" href="<?php echo base_url('/public/novo/app-assets/vendors/css/tables/datatable/datatables.min.css'); ?>">
 
   <!-- END: Page CSS-->
@@ -154,6 +155,7 @@
 <script src="<?php echo base_url('/public/novo/app-assets/vendors/js/tables/datatable/datatables.buttons.min.js') ?>"></script>
 <script src="<?php echo base_url('/public/novo/app-assets/vendors/js/tables/datatable/buttons.bootstrap.min.js') ?>"></script>
 <script src="<?php echo base_url('/public/novo/app-assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js') ?>"></script>
+<script src="<?php echo base_url('/public/novo/app-assets/vendors/js/extensions/toastr.min.js') ?>"></script>
 
 
 <!-- END: Page Vendor JS-->
@@ -168,7 +170,7 @@
 <script src="<?php echo base_url('/public/novo/app-assets/js/scripts/pages/app-ecommerce-shop.js'); ?>"></script>
 <script src="<?php echo base_url('/public/novo/app-assets/js/scripts/pagination/pagination.js'); ?>"></script>
 <script src="<?php echo base_url('/public/novo/app-assets/js/scripts/datatables/datatable.js') ?>"></script>
-
+<script src="<?php echo base_url('/public/novo/app-assets/js/scripts/extensions/toastr.js') ?>"></script>
 <!-- END: Page JS-->
 
 <script src="<?php echo base_url('/public/dist/jquery-mask/dist/jquery.mask.min.js'); ?>"></script>

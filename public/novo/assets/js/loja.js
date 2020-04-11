@@ -62,13 +62,15 @@ var atualizarQtdCarrinho = function(){
 
           if (res.erro == 0) {
             $('.total-carrinho-menu').html(res.itens);
+            toastr.success('Adicionado no carrinho!', 'Sucesso!', { "hideDuration": 500 });
 
           } else{
-            alert(res.msg);
+            toastr.error(res.msg, 'Erro', { "hideDuration": 3000 });
 
-            $('.add-to-cart').removeClass("d-none");
-            $('.view-in-cart').addClass("d-none");
-            $('.view-in-cart').removeClass("d-inline-block");
+
+            // $('.add-to-cart').removeClass("d-none");
+            // $('.view-in-cart').addClass("d-none");
+            // $('.view-in-cart').removeClass("d-inline-block");
 
           }
 

@@ -30,17 +30,17 @@
               <h6>Dados do Produto</h6>
               <fieldset>
                 <div class="row">
-                  <div class="col-sm-6">
+                  <div class="col-sm-4">
                     <div class="form-group">
                       <label for="nome_produto">Nome Produto </label>
                       <input type="text" name="nome_produto" class="form-control" placeholder="Nome produto" value="<?php echo ( $dados != NULL ? $dados->nome_produto : set_value('nome_produto')); ?>">
                     </div>
                   </div>
 
-                  <div class="col-sm-3">
+                  <div class="col-sm-2">
                     <div class="form-group">
                       <label for="cod_produto">Codigo do produto</label>
-                      <input type="text" name="cod_produto" class="form-control" placeholder="Codigo do produto" value="<?php echo ( $dados != NULL ? $dados->cod_produto : set_value('cod_produto')); ?>">
+                      <input type="text" name="cod_produto" class="form-control" placeholder="Codigo" value="<?php echo ( $dados != NULL ? $dados->cod_produto : set_value('cod_produto')); ?>">
                     </div>
                   </div>
 
@@ -50,11 +50,19 @@
                       <input type="text" name="palete" class="form-control" placeholder="Palete do produto" value="<?php echo ( $dados != NULL ? $dados->palete : set_value('palete')); ?>">
                     </div>
                   </div>
+
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                      <label for="controlar_estoque">Estoque</label>
+                      <input type="text" name="estoque" class="form-control" placeholder="Estoque" value="<?php echo ( $dados != NULL ? $dados->estoque : set_value('estoque')); ?>">
+
+                    </div>
+                  </div>
                 </div>
 
                 <div class="row">
 
-                  <div class="col-sm-3">
+                  <div class="col-sm-3 hidden">
                     <div class="form-group">
                       <label for="controlar_estoque">Controlar estoque?</label>
                       <select class="custom-select form-control" name="controlar_estoque">
@@ -68,15 +76,7 @@
                       </select>
                     </div>
                   </div>
-                  <div class="col-sm-3">
-                    <div class="form-group">
 
-                      <label for="controlar_estoque">Estoque</label>
-
-                      <input type="text" name="estoque" class="form-control" placeholder="Estoque" value="<?php echo ( $dados != NULL ? $dados->estoque : set_value('estoque')); ?>">
-
-                    </div>
-                  </div>
 
                 </div>
               </fieldset>
@@ -107,7 +107,7 @@
                     <div class="form-group">
                       <label for="eventLocation1">Empresa</label>
                       <select class="custom-select form-control" name="id_marca">
-                        <option value="">Selecione uma marca</option>
+                        <option value="">Selecione uma empresa</option>
                         <?php foreach ($marcas as $marca): ?>
                           <?php if($dados) { ?>
                             <option value="<?php echo $marca->id; ?>" <?= ($marca->id == $dados->id_marca ? 'selected="selected"' : '') ?>><?php echo $marca->nome_marca; ?></option>
@@ -119,7 +119,6 @@
                       </select>
                     </div>
                   </div>
-
 
                   <div class="col-sm-4">
                     <div class="form-group">
